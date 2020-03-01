@@ -613,6 +613,68 @@ public class LineChartRenderer extends LineRadarRenderer {
     @Override
     public void drawExtras(Canvas c) {
         drawCircles(c);
+        drawLastPointCircle(c);
+    }
+
+    protected void drawLastPointCircle(Canvas c) {
+
+        mRenderPaint.setStyle(Paint.Style.FILL);
+        float phaseY = mAnimator.getPhaseY();
+        mCirclesBuffer[0] = 0;
+        mCirclesBuffer[1] = 0;
+
+        List<ILineDataSet> dataSets = mChart.getLineData().getDataSets();
+
+        for (int i = 0; i < dataSets.size(); i++) {
+
+            ILineDataSet dataSet = dataSets.get(i);
+
+            if (!dataSet.isVisible() || /*!dataSet.isDrawCirclesEnabled() ||*/
+                    dataSet.getEntryCount() == 0)
+                continue;
+
+            mCirclePaintInner.setColor(dataSet.getCircleHoleColor());
+
+            Transformer trans = mChart.getTransformer(dataSet.getAxisDependency());
+
+            mXBounds.set(mChart, dataSet);
+
+            float circleRadius = dataSet.getCircleRadius() * 1.0f;
+            float circleHoleRadius = dataSet.getCircleHoleRadius() * 1.0f;
+            boolean drawCircleHole = dataSet.isDrawCircleHoleEnabled() &&
+                    circleHoleRadius < circleRadius &&
+                    circleHoleRadius > 0.f;
+
+            Entry e = dataSet.getEntryForIndex(dataSet.getEntryCount() - 1);
+
+            if (e == null) return;
+
+            mCirclesBuffer[0] = e.getX();
+            mCirclesBuffer[1] = e.getY() * phaseY;
+
+            trans.pointValuesToPixel(mCirclesBuffer);
+
+            if (!mViewPortHandler.isInBoundsRight(mCirclesBuffer[0]))
+                return;
+
+            if (!mViewPortHandler.isInBoundsLeft(mCirclesBuffer[0]) ||
+                    !mViewPortHandler.isInBoundsY(mCirclesBuffer[1]))
+                return;
+
+            c.drawCircle(
+                    mCirclesBuffer[0]-10,
+                    mCirclesBuffer[1],
+                    circleRadius,
+                    mRenderPaint);
+
+            if (drawCircleHole) {
+                c.drawCircle(
+                        mCirclesBuffer[0]-10,
+                        mCirclesBuffer[1],
+                        circleHoleRadius,
+                        mCirclePaintInner);
+            }
+        }
     }
 
     /**

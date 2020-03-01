@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent_19">#19ffffff</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="green">#23bcba</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="grey">#868e96</color>
+    <color name="lightGrey">#E9EBED</color>
+    <color name="blue">#1864ab</color>
+    <color name="button">#1098ad</color>
+    <color name="progress_background">#80ced4da</color>
+    <color name="progress">#339af0</color>
+    <color name="dotNormal">#68ffffff</color>
+    <color name="dotHighlight">#ffffff</color>
+    <color name="chartLine">#3394E3</color>
+    <color name="progressRed">#e03131</color>
+    <color name="progressBlue">#1864ab</color>
+    <color name="bannerBackground">#f8f9fa</color>
+</resources>
