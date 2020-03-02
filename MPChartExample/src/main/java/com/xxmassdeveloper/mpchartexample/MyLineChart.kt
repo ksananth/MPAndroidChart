@@ -3,7 +3,7 @@ package com.xxmassdeveloper.mpchartexample
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.MotionEvent
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.LineChart
@@ -17,10 +17,11 @@ import com.github.mikephil.charting.formatter.IFillFormatter
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import kotlinx.android.synthetic.main.activity_my_linechart.*
+import java.util.*
 
 class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
 
-
+    private var mCurrentToast: Toast? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_linechart)
@@ -96,38 +97,10 @@ class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
         lineChart.data = lineData
         lineChart.animateX(1500)
         lineChart.setHardwareAccelerationEnabled(false)
+        lineChart.isHighlightPerTapEnabled = true
+        lineChart.isDragEnabled = true
         lineChart.invalidate()
 
-
-        /*  val spring = SpringForce(1f)
-          val anim = SpringAnimation(lineChart, DynamicAnimation.SCALE_Y)
-                  .setMinValue(0f).setSpring(spring).setStartValue(1f)
-          anim.start()*/
-        //setTouch()
-    }
-
-    private fun setTouch() {
-        var dX = 0
-        var dY = 0
-        steppedLineChart.setOnTouchListener { view, event ->
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    dX = (view.x - event.rawX).toInt()
-                    dY = (view.y - event.rawY).toInt()
-                }
-
-                MotionEvent.ACTION_MOVE -> {
-                    val newX = event.rawX + dX
-                    val newY = event.rawY + dY
-
-                    Log.e("newX", " newX $newX")
-                    Log.e("newY", "newY $newY")
-                    //view.animate().x(newX).y(newY).setDuration(0).start()
-                }
-            }
-
-            return@setOnTouchListener true
-        }
     }
 
     private fun getEntries(): List<Entry> {
@@ -166,5 +139,11 @@ class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
         Log.i("Entry selected", e.toString())
         Log.i("LOW HIGH", "low: " + steppedLineChart.lowestVisibleX + ", high: " + steppedLineChart.highestVisibleX)
         Log.i("MIN MAX", "xMin: " + steppedLineChart.xChartMin + ", xMax: " + steppedLineChart.xChartMax + ", yMin: " + steppedLineChart.yChartMin + ", yMax: " + steppedLineChart.yChartMax)
+
+        mCurrentToast?.cancel()
+
+        val res: String = java.lang.String.format(Locale.ENGLISH, "Item: %f; Value: %.2f", e!!.x, e.y)
+        mCurrentToast = Toast.makeText(this, res, Toast.LENGTH_SHORT)
+        mCurrentToast?.show()
     }
 }
