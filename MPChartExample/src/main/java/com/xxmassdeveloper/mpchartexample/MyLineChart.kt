@@ -59,6 +59,7 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
         //X-Axis Style
         val xAxis: XAxis = lineChart.xAxis
+        xAxis.setDrawLabels(false)
         xAxis.enableGridDashedLine(10f, 10f, 0f)
 
         //Y-Axis Style
