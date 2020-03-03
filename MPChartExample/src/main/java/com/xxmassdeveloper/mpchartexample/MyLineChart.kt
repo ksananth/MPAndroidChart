@@ -90,12 +90,13 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         lineChart.legend.isEnabled = false
         lineChart.axisRight.setDrawLabels(false);
         lineChart.xAxis.setDrawLabels(false);
-        lineChart.setVisibleXRangeMaximum(50f)
-        lineChart.moveViewToX(10f)
+
         lineChart.setScaleEnabled(false)
 
         lineChart.data = lineData
         lineChart.animateXY(300, 300)
+        lineChart.setVisibleXRangeMaximum(20.0f)
+        lineChart.moveViewToX(10f)
     }
 
     private fun getEntries(): List<Entry> {
