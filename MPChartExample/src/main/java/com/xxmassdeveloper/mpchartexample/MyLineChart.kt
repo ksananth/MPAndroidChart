@@ -72,6 +72,8 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.axisMinimum = 0f
         yAxis.labelCount = 10
         yAxis.granularity = 50f
+        yAxis.textColor = Color.parseColor("#adb5bd")
+        yAxis.textSize = 10f
 
 
         // draw limit lines behind data instead of on top
