@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_my_linechart.*
 
 class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
-    private var mCurrentToast: Toast? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_linechart)

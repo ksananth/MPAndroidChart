@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.Canvas;
@@ -806,8 +807,21 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
             mMarker.refreshContent(e, highlight);
 
             // draw the marker
-            mMarker.draw(canvas, pos[0], pos[1]);
+            //mMarker.draw(canvas, pos[0], pos[1]); //todo:ananth
+
+            Paint paint = new Paint();
+            paint.setStrokeWidth(10);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setColor(Color.parseColor("#339af0"));
+            canvas.drawCircle( pos[0],  pos[1], 10, paint);
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.parseColor("#ffffff"));
+            canvas.drawCircle( pos[0],  pos[1], 10, paint);
         }
+    }
+
+    public static int pxToDp(int px) {
+        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
     }
 
     /**
