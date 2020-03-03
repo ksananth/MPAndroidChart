@@ -2,7 +2,6 @@ package com.xxmassdeveloper.mpchartexample
 
 import android.graphics.Color
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.LineChart
@@ -14,6 +13,7 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IFillFormatter
 import kotlinx.android.synthetic.main.activity_my_linechart.*
+
 
 class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
@@ -75,8 +75,11 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.setDrawLimitLinesBehindData(true)
         xAxis.setDrawLimitLinesBehindData(true)
 
+        xAxis.setDrawAxisLine(false)
+        yAxis.setDrawAxisLine(false)
+
         val description = Description()
-        description.text =""
+        description.text = ""
         lineChart.description = description
         lineChart.legend.isEnabled = false
         lineChart.axisRight.setDrawLabels(false);
