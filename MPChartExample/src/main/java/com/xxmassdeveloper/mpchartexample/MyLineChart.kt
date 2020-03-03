@@ -11,8 +11,10 @@ import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.DefaultValueFormatter
 import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IFillFormatter
+import com.github.mikephil.charting.formatter.PercentageValueFormatter
 import kotlinx.android.synthetic.main.activity_my_linechart.*
 
 class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
@@ -71,9 +73,10 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.axisMaximum = 100f
         yAxis.axisMinimum = 0f
         yAxis.labelCount = 10
-        yAxis.granularity = 50f
+        yAxis.granularity = 10f
         yAxis.textColor = Color.parseColor("#adb5bd")
         yAxis.textSize = 10f
+        yAxis.valueFormatter = PercentageValueFormatter("%")
 
         // draw limit lines behind data instead of on top
         yAxis.setDrawLimitLinesBehindData(true)
