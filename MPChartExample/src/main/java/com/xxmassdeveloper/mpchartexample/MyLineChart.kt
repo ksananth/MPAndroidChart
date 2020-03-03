@@ -63,6 +63,7 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
         //Y-Axis Style
         val yAxis: YAxis = lineChart.axisLeft
+        lineChart.xAxis.setDrawGridLines(false)
         lineChart.axisRight.isEnabled = false
         yAxis.enableGridDashedLine(10f, 10f, 0f)
         yAxis.axisMaximum = 100f
