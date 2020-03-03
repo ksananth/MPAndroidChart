@@ -19,7 +19,7 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import kotlinx.android.synthetic.main.activity_my_linechart.*
 import java.util.*
 
-class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
+class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
     private var mCurrentToast: Toast? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
     private fun addLineChart(lineChart: LineChart, mode: LineDataSet.Mode) {
         val lineEntries: List<Entry> = getEntries()
         val lineDataSet = LineDataSet(lineEntries, "")
-        lineDataSet.mode = mode
+        lineDataSet.mode = LineDataSet.Mode.STEPPED
         lineDataSet.valueTextColor = Color.BLACK
         lineDataSet.valueTextSize = 18f
 
@@ -47,13 +47,11 @@ class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
         lineDataSet.fillDrawable = drawable
 
         lineDataSet.setDrawValues(false)
-        lineDataSet.setDrawCircles(false)
         lineDataSet.setCircleColor(ContextCompat.getColor(applicationContext, R.color.chartLine))
         lineDataSet.lineWidth = 3f
         lineDataSet.color = ContextCompat.getColor(applicationContext, R.color.chartLine)
         lineDataSet.circleRadius = 5f
         lineDataSet.circleHoleRadius = 2f
-
 
         val lineData = LineData(lineDataSet)
 
@@ -66,14 +64,12 @@ class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
 
         //X-Axis Style
         val xAxis: XAxis = lineChart.xAxis
-        //xAxis.enableGridDashedLine(10f, 10f, 0f)
-        xAxis.setDrawLabels(false)
+        xAxis.enableGridDashedLine(10f, 10f, 0f)
 
         //Y-Axis Style
         val yAxis: YAxis = lineChart.axisLeft
-        yAxis.enableGridDashedLine(2f, 5f, 0f)
         lineChart.axisRight.isEnabled = false
-        lineChart.xAxis.setDrawGridLines(false)
+        yAxis.enableGridDashedLine(10f, 10f, 0f)
         yAxis.axisMaximum = 100f
         yAxis.axisMinimum = 0f
 
@@ -81,26 +77,8 @@ class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
         yAxis.setDrawLimitLinesBehindData(true)
         xAxis.setDrawLimitLinesBehindData(true)
 
-        lineChart.setScaleMinima(1.3f, 1f)
-
-        // enable touch gestures
-        lineChart.setTouchEnabled(true)
-        // set listeners
-        lineChart.setOnChartValueSelectedListener(this)
-
-        lineChart.legend.isEnabled = false
-        val description = Description()
-        description.text = ""
-        lineChart.setVisibleXRangeMaximum(50f)
-        lineChart.moveViewToX(10f)
-        lineChart.description = description
         lineChart.data = lineData
-        lineChart.animateX(1500)
-        lineChart.setHardwareAccelerationEnabled(false)
-        lineChart.isHighlightPerTapEnabled = true
-        lineChart.isDragEnabled = true
-        lineChart.invalidate()
-
+        lineChart.animateXY(300, 300)
     }
 
     private fun getEntries(): List<Entry> {
@@ -130,7 +108,7 @@ class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
         lineEntries.add(Entry(23f, 60f))
         return lineEntries
     }
-
+/*
     override fun onNothingSelected() {
         Log.i("Nothing selected", "Nothing selected.")
     }
@@ -145,5 +123,5 @@ class MyLineChart : AppCompatActivity(), OnChartValueSelectedListener {
         val res: String = java.lang.String.format(Locale.ENGLISH, "Item: %f; Value: %.2f", e!!.x, e.y)
         mCurrentToast = Toast.makeText(this, res, Toast.LENGTH_SHORT)
         mCurrentToast?.show()
-    }
+    }*/
 }

@@ -613,7 +613,7 @@ public class LineChartRenderer extends LineRadarRenderer {
     @Override
     public void drawExtras(Canvas c) {
         drawCircles(c);
-        drawLastPointCircle(c);
+        //drawLastPointCircle(c);
     }
 
     protected void drawLastPointCircle(Canvas c) {
