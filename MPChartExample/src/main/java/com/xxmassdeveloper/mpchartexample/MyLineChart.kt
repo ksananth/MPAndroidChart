@@ -73,6 +73,7 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.setDrawLimitLinesBehindData(true)
         xAxis.setDrawLimitLinesBehindData(true)
 
+        lineChart.legend.isEnabled = false
         lineChart.setVisibleXRangeMaximum(50f)
         lineChart.moveViewToX(10f)
         lineChart.setScaleEnabled(false)
