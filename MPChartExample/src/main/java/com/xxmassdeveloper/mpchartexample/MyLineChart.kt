@@ -2,22 +2,17 @@ package com.xxmassdeveloper.mpchartexample
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.Description
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IFillFormatter
-import com.github.mikephil.charting.highlight.Highlight
-import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 import kotlinx.android.synthetic.main.activity_my_linechart.*
-import java.util.*
 
 class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
@@ -33,7 +28,7 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
     private fun addLineChart(lineChart: LineChart, mode: LineDataSet.Mode) {
         val lineEntries: List<Entry> = getEntries()
         val lineDataSet = LineDataSet(lineEntries, "")
-        lineDataSet.mode = LineDataSet.Mode.STEPPED
+        lineDataSet.mode = mode
         lineDataSet.valueTextColor = Color.BLACK
         lineDataSet.valueTextSize = 18f
 
