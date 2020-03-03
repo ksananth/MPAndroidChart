@@ -60,13 +60,13 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         //X-Axis Style
         val xAxis: XAxis = lineChart.xAxis
         xAxis.setDrawLabels(false)
-        xAxis.enableGridDashedLine(10f, 10f, 0f)
+        xAxis.enableGridDashedLine(1f, 1f, 0f)
 
         //Y-Axis Style
         val yAxis: YAxis = lineChart.axisLeft
         lineChart.xAxis.setDrawGridLines(false)
         lineChart.axisRight.isEnabled = false
-        yAxis.enableGridDashedLine(10f, 10f, 0f)
+        yAxis.enableGridDashedLine(2f, 10f, 0f)
         yAxis.axisMaximum = 100f
         yAxis.axisMinimum = 0f
 
