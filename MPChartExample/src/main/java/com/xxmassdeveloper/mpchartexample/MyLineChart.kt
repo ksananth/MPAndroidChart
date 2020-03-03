@@ -75,7 +75,6 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.textColor = Color.parseColor("#adb5bd")
         yAxis.textSize = 10f
 
-
         // draw limit lines behind data instead of on top
         yAxis.setDrawLimitLinesBehindData(true)
         xAxis.setDrawLimitLinesBehindData(true)
@@ -101,7 +100,7 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
     private fun getEntries(): List<Entry> {
         val lineEntries = mutableListOf<Entry>()
-        lineEntries.add(Entry(1f, 60f))
+        lineEntries.add(Entry(1f, 70f))
         lineEntries.add(Entry(2f, 50f))
         lineEntries.add(Entry(3f, 40f))
         lineEntries.add(Entry(4f, 30f))
@@ -123,7 +122,15 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         lineEntries.add(Entry(20f, 90f))
         lineEntries.add(Entry(21f, 80f))
         lineEntries.add(Entry(22f, 80f))
-        lineEntries.add(Entry(23f, 60f))
+        lineEntries.add(Entry(24f, 40f))
+        lineEntries.add(Entry(25f, 60f))
+        lineEntries.add(Entry(26f, 60f))
+        lineEntries.add(Entry(27f, 60f))
+        lineEntries.add(Entry(28f, 50f))
+        lineEntries.add(Entry(29f, 60f))
+        lineEntries.add(Entry(30f, 30f))
+        lineEntries.add(Entry(31f, 60f))
+        lineEntries.add(Entry(32f, 77f))
         return lineEntries
     }
 /*
