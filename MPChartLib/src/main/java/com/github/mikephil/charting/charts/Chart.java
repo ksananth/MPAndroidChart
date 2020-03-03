@@ -806,9 +806,6 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
             // callbacks to update the content
             mMarker.refreshContent(e, highlight);
 
-            // draw the marker
-            //mMarker.draw(canvas, pos[0], pos[1]); //todo:ananth
-
             Paint paint = new Paint();
             paint.setStrokeWidth(10);
             paint.setStyle(Paint.Style.STROKE);
@@ -817,6 +814,9 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(Color.parseColor("#ffffff"));
             canvas.drawCircle( pos[0],  pos[1], 8, paint);
+
+            // draw the marker
+            mMarker.draw(canvas, pos[0], pos[1]); //todo:ananth
         }
     }
 
