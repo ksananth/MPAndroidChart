@@ -813,10 +813,10 @@ public abstract class Chart<T extends ChartData<? extends IDataSet<? extends Ent
             paint.setStrokeWidth(10);
             paint.setStyle(Paint.Style.STROKE);
             paint.setColor(Color.parseColor("#339af0"));
-            canvas.drawCircle( pos[0],  pos[1], 10, paint);
+            canvas.drawCircle( pos[0],  pos[1], 8, paint);
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(Color.parseColor("#ffffff"));
-            canvas.drawCircle( pos[0],  pos[1], 10, paint);
+            canvas.drawCircle( pos[0],  pos[1], 8, paint);
         }
     }
 
