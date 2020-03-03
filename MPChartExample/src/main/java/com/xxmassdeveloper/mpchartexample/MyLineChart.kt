@@ -47,6 +47,7 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         lineDataSet.fillDrawable = drawable
 
         lineDataSet.setDrawValues(false)
+        lineDataSet.setDrawCircles(false)
         lineDataSet.setCircleColor(ContextCompat.getColor(applicationContext, R.color.chartLine))
         lineDataSet.lineWidth = 3f
         lineDataSet.color = ContextCompat.getColor(applicationContext, R.color.chartLine)
@@ -77,6 +78,8 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.setDrawLimitLinesBehindData(true)
         xAxis.setDrawLimitLinesBehindData(true)
 
+        lineChart.setVisibleXRangeMaximum(50f)
+        lineChart.moveViewToX(10f)
         lineChart.setScaleEnabled(false)
 
         lineChart.data = lineData
