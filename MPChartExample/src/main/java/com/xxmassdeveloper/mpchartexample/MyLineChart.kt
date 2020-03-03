@@ -69,6 +69,8 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.enableGridDashedLine(2f, 10f, 0f)
         yAxis.axisMaximum = 100f
         yAxis.axisMinimum = 0f
+        yAxis.labelCount = 10
+
 
         // draw limit lines behind data instead of on top
         yAxis.setDrawLimitLinesBehindData(true)
