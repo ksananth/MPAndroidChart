@@ -44,7 +44,7 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         lineDataSet.setDrawValues(false)
         lineDataSet.setDrawCircles(false)
         lineDataSet.setCircleColor(ContextCompat.getColor(applicationContext, R.color.chartLine))
-        lineDataSet.lineWidth = 3f
+        lineDataSet.lineWidth = 2f
         lineDataSet.color = ContextCompat.getColor(applicationContext, R.color.chartLine)
         lineDataSet.circleRadius = 5f
         lineDataSet.circleHoleRadius = 2f
@@ -97,6 +97,9 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         lineChart.animateXY(300, 300)
         lineChart.setVisibleXRangeMaximum(20.0f)
         lineChart.moveViewToX(10f)
+        lineChart.setHardwareAccelerationEnabled(false)
+
+
     }
 
     private fun getEntries(): List<Entry> {
