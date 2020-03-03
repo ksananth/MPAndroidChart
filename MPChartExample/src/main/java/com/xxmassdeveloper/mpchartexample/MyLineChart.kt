@@ -14,7 +14,6 @@ import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IFillFormatter
 import kotlinx.android.synthetic.main.activity_my_linechart.*
 
-
 class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,6 +76,8 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
 
         xAxis.setDrawAxisLine(false)
         yAxis.setDrawAxisLine(false)
+
+        yAxis.setPosition(YAxis.YAxisLabelPosition.INSIDE_CHART)
 
         val description = Description()
         description.text = ""
