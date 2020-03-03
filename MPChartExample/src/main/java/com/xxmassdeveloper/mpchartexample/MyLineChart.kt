@@ -11,6 +11,7 @@ import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.IFillFormatter
 import kotlinx.android.synthetic.main.activity_my_linechart.*
 
@@ -70,6 +71,7 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.axisMaximum = 100f
         yAxis.axisMinimum = 0f
         yAxis.labelCount = 10
+        yAxis.granularity = 50f
 
 
         // draw limit lines behind data instead of on top
