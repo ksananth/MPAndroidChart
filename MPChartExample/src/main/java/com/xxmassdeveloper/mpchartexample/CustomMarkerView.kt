@@ -23,7 +23,7 @@ class CustomMarkerView(context: Context, layoutResource: Int) :
                 true
             )
         } else {
-            tvContent!!.text = Utils.formatNumber(e.y, 0, true)
+            tvContent!!.text = e.y.toString() + "%"
         }
         super.refreshContent(e, highlight)
     }
