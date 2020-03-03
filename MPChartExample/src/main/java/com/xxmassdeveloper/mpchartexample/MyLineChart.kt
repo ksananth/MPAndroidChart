@@ -77,6 +77,8 @@ class MyLineChart : AppCompatActivity()/*, OnChartValueSelectedListener */{
         yAxis.setDrawLimitLinesBehindData(true)
         xAxis.setDrawLimitLinesBehindData(true)
 
+        lineChart.setScaleEnabled(false)
+
         lineChart.data = lineData
         lineChart.animateXY(300, 300)
     }
